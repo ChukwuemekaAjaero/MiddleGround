@@ -1,4 +1,4 @@
 # Node.js/Backend
 docker/backend/node_modules
 */package-lock.json
-*/.env
+docker/backend/.env
