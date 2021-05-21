@@ -9,5 +9,4 @@ app.get('/', (req, res) => {
     res.send("This is a testt")
 })
 
-//TODO: I'm going to need to use a variable defined in the .env file.
-app.listen(8080, 'localhost');
+app.listen(process.env.EXPRESS_PORT, 'localhost');
