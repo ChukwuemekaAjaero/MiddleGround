@@ -15,7 +15,18 @@ router.get('/:tag_id', (res, req, next) => {
 
 //Create a tag
 router.post('/', (res, req, next) => {
-    res.send('NOT IMPLEMENTED: tag POST')
+    //Can only be done by authorised users.
+    res.send('NOT IMPLEMENTED: tag POST');
+});
+
+//Update a tag by its ID
+router.put('/:tag_id', (req, res, next) => {
+    res.send('NOT IMPLEMENTED: tag PUT updated')
 })
+
+//Delete a tag by its ID
+router.delete('/:tag_id', (req, res, next) => {
+    res.send('NOT IMPLEMENTED: tag DELETE');
+});
 
 module.exports = router;
