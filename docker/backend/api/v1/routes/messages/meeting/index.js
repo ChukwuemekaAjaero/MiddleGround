@@ -9,6 +9,7 @@ router.get('/', (res, req, next) => {
     res.send('NOT IMPLEMENTED: meeting messages GET');
 });
 
+//TODO: I might consider removing this route as I might have a duplicate in the meetings module
 //Get all the messages from a meeting using its id
 router.get('/:meeting_id', (res, req, next) => {
     res.send('NOT IMPLEMENTED: meeting_id messages GET');
