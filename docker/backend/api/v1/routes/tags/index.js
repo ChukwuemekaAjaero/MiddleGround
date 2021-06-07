@@ -2,31 +2,21 @@
 
 const express = require('express');
 const router = express.Router();
+const tags_controller = require('../../controllers/tagsController');
 
 //Home Path
-router.get('/', (res, req, next) => {
-    res.send('NOT IMPLEMENTED: tags GET');
-});
+router.get('/', tags_controller.get_tags_list);
 
 //Get tag by its ID
-router.get('/:tag_id', (res, req, next) => {
-    res.send('NOT IMPLEMENTED: tag GET by id');
-});
+router.get('/:tag_id', tags_controller.get_tag);
 
 //Create a tag
-router.post('/', (res, req, next) => {
-    //Can only be done by authorised users.
-    res.send('NOT IMPLEMENTED: tag POST');
-});
+router.post('/', tags_controller.create_new_tag);
 
 //Update a tag by its ID
-router.put('/:tag_id', (req, res, next) => {
-    res.send('NOT IMPLEMENTED: tag PUT updated')
-})
+router.put('/:tag_id', tags_controller.update_tag);
 
 //Delete a tag by its ID
-router.delete('/:tag_id', (req, res, next) => {
-    res.send('NOT IMPLEMENTED: tag DELETE');
-});
+router.delete('/:tag_id', tags_controller.delete_tag);
 
 module.exports = router;
