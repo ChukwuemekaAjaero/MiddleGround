@@ -1,44 +1,33 @@
 // --------------------- THIS MODULE IS TO STORE ALL THE API ROUTES FOR THE MEETING MESSAGES ROUTES ---------------------
 
+// --------------------- CONSTANTS  ---------------------
 const express = require('express');
 const router = express.Router();
+const meeting_messages_controller = require('../../../controllers/meetingMessagesController')
 
+// --------------------- ROUTES ---------------------
 //Home Path
 //TODO: Better organize the order of the routes
-router.get('/', (res, req, next) => {
-    res.send('NOT IMPLEMENTED: meeting messages GET');
-});
+router.get('/', meeting_messages_controller.meeting_messages_list);
 
 //TODO: I might consider removing this route as I might have a duplicate in the meetings module
 //Get all the messages from a meeting using its id
-router.get('/:meeting_id', (res, req, next) => {
-    res.send('NOT IMPLEMENTED: meeting_id messages GET');
-});
+router.get('/:meeting_id', meeting_messages_controller.get_meeting_messages_list);
 
 //Create a new message from one user to the meeting chat
-router.post('/:meeting_id/:message_from_id', (res, req, next) => {
-    res.send('NOT IMPLEMENTED: meeting_id POST from message_from_id');
-});
+router.post('/:meeting_id/:message_from_id', meeting_messages_controller.create_new_meeting_message);
 
 //Get a specific message from the meeting chat
-router.get('/:meeting_id/:message_id', (res, req, next) => {
-    res.send('NOT IMPLEMENTED: meeting_id GET message_id');
-});
+router.get('/:meeting_id/:message_id', meeting_messages_controller.get_meeting_message);
 
 //Delete a specific message from the meeting chat
-router.delete('/:meeting_id/:message_id', (req, res, next) => {
-    res.send('NOT IMPLEMENTED: meeting_id DELETE message_id');
-});
+router.delete('/:meeting_id/:message_id', meeting_messages_controller.delete_meeting_message);
 
 //Get a specific message's status
-router.get('/:meeting_id/:message_id/status', (req, res, next) => {
-    res.send('NOT IMPLEMENTED: meeting_id GET message_id status');
-});
+router.get('/:meeting_id/:message_id/status', meeting_messages_controller.get_meeting_message_status);
 
 //Update a specific message's status
-router.put('/:meeting_id/:message_id', (req, res, next) => {
-    res.send('NOT IMPLEMENTED: meeting_id PUT message_id status');
-});
+router.put('/:meeting_id/:message_id', meeting_messages_controller.update_meeting_message_status);
 
 
 module.exports = router;
