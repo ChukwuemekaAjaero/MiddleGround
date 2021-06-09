@@ -1,33 +1,32 @@
 // --------------------- THIS MODULE IS TO STORE ALL THE API ROUTES FOR THE MEETING MESSAGES ROUTES ---------------------
 
 // --------------------- CONSTANTS  ---------------------
-const express = require('express');
-const router = express.Router();
-const meeting_messages_controller = require('../../../controllers/meetingMessagesController')
+const express = require('express')
+const router = express.Router()
+const meetingMessagesController = require('../../../controllers/meetingMessagesController')
 
 // --------------------- ROUTES ---------------------
-//Home Path
-//TODO: Better organize the order of the routes
-router.get('/', meeting_messages_controller.meeting_messages_list);
+// Home Path
+// TODO: Better organize the order of the routes
+router.get('/', meetingMessagesController.meetingMessagesList)
 
-//TODO: I might consider removing this route as I might have a duplicate in the meetings module
-//Get all the messages from a meeting using its id
-router.get('/:meeting_id', meeting_messages_controller.get_meeting_messages_list);
+// TODO: I might consider removing this route as I might have a duplicate in the meetings module
+// Get all the messages from a meeting using its id
+router.get('/:meeting_id', meetingMessagesController.getMeetingMessagesList)
 
-//Create a new message from one user to the meeting chat
-router.post('/:meeting_id/:message_from_id', meeting_messages_controller.create_new_meeting_message);
+// Create a new message from one user to the meeting chat
+router.post('/:meeting_id/:message_from_id', meetingMessagesController.createNewMeetingMessage)
 
-//Get a specific message from the meeting chat
-router.get('/:meeting_id/:message_id', meeting_messages_controller.get_meeting_message);
+// Get a specific message from the meeting chat
+router.get('/:meeting_id/:message_id', meetingMessagesController.getMeetingMessage)
 
-//Delete a specific message from the meeting chat
-router.delete('/:meeting_id/:message_id', meeting_messages_controller.delete_meeting_message);
+// Delete a specific message from the meeting chat
+router.delete('/:meeting_id/:message_id', meetingMessagesController.deleteMeetingMessage)
 
-//Get a specific message's status
-router.get('/:meeting_id/:message_id/status', meeting_messages_controller.get_meeting_message_status);
+// Get a specific message's status
+router.get('/:meeting_id/:message_id/status', meetingMessagesController.getMeetingMessageStatus)
 
-//Update a specific message's status
-router.put('/:meeting_id/:message_id', meeting_messages_controller.update_meeting_message_status);
+// Update a specific message's status
+router.put('/:meeting_id/:message_id', meetingMessagesController.updateMeetingMessageStatus)
 
-
-module.exports = router;
+module.exports = router
